@@ -1,0 +1,998 @@
+:root {
+    --rojo: #e10600;
+    --rojo-oscuro: #8b0000;
+    --rojo-brillante: #ff1a1a;
+    --negro: #080808;
+    --negro-2: #101010;
+    --negro-3: #171717;
+    --gris: #222222;
+    --gris-claro: #a8a8a8;
+    --blanco: #f5f5f5;
+    --borde: rgba(255, 0, 0, 0.35);
+    --sombra-roja: 0 0 15px rgba(225, 6, 0, 0.25);
+    --sombra-fuerte: 0 10px 40px rgba(0, 0, 0, 0.7);
+    --transicion: 0.3s ease;
+}
+
+/* =========================================================
+   RESETEO
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(
+        circle at top,
+        #241010 0%,
+        #080808 45%,
+        #050505 100%
+    );
+    color: var(--blanco);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================================================
+   BARRA DE DESPLAZAMIENTO
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--rojo);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--rojo-brillante);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(
+        180deg,
+        rgba(5, 5, 5, 0.98),
+        rgba(12, 12, 12, 0.96)
+    );
+    border-bottom: 2px solid var(--rojo);
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.8),
+        0 2px 15px rgba(225, 6, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 25px 12px;
+}
+
+.logo h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: white;
+    text-transform: uppercase;
+    text-shadow:
+        3px 3px 0 #500000,
+        0 0 20px rgba(225, 6, 0, 0.4);
+}
+
+.logo h1::first-letter {
+    color: var(--rojo);
+}
+
+.logo p {
+    color: #888;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: -5px;
+}
+
+/* =========================================================
+   MENÚ
+   ========================================================= */
+
+.menu {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 0 20px 15px;
+}
+
+.menu a {
+    position: relative;
+    padding: 10px 16px;
+    color: #aaa;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transicion);
+}
+
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 3px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--rojo);
+    transform: translateX(-50%);
+    transition: var(--transicion);
+}
+
+.menu a:hover {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.menu a:hover::after {
+    width: 70%;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    min-height: 720px;
+    max-width: 1400px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    padding: 90px 6%;
+    position: relative;
+}
+
+/* Línea decorativa */
+
+.hero::before {
+    content: "";
+    position: absolute;
+    left: 5%;
+    right: 5%;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--rojo),
+        transparent
+    );
+}
+
+.hero-texto {
+    position: relative;
+    z-index: 2;
+}
+
+.etiqueta {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    background: var(--rojo);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    transform: skew(-8deg);
+    box-shadow: 5px 5px 0 #520000;
+}
+
+.hero h2 {
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    line-height: 0.95;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    margin-bottom: 30px;
+    text-shadow:
+        5px 5px 0 #300000,
+        0 0 30px rgba(225, 6, 0, 0.2);
+}
+
+.hero h2::first-line {
+    color: white;
+}
+
+.hero p {
+    max-width: 600px;
+    color: #aaa;
+    font-size: 1.05rem;
+    margin-bottom: 35px;
+}
+
+/* =========================================================
+   HERO IMAGEN
+   ========================================================= */
+
+.hero-imagen {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    box-shadow:
+        var(--sombra-fuerte),
+        0 0 30px rgba(225, 0, 0, 0.15);
+    transform: rotate(1deg);
+}
+
+.hero-imagen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(225, 0, 0, 0.35),
+        transparent 50%,
+        rgba(0, 0, 0, 0.75)
+    );
+    pointer-events: none;
+}
+
+.hero-imagen img {
+    height: 100%;
+    transition: transform 0.7s ease;
+}
+
+.hero-imagen:hover img {
+    transform: scale(1.08);
+}
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.boton {
+    display: inline-block;
+    padding: 14px 28px;
+    background: linear-gradient(
+        135deg,
+        var(--rojo-brillante),
+        var(--rojo-oscuro)
+    );
+    border: 1px solid #ff3b3b;
+    color: white;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow:
+        5px 5px 0 #3d0000,
+        0 0 20px rgba(225, 6, 0, 0.25);
+    transition: var(--transicion);
+    clip-path: polygon(
+        8px 0,
+        100% 0,
+        100% calc(100% - 8px),
+        calc(100% - 8px) 100%,
+        0 100%,
+        0 8px
+    );
+}
+
+.boton:hover {
+    background: linear-gradient(
+        135deg,
+        #ff3333,
+        #b00000
+    );
+    transform: translate(-3px, -3px);
+    box-shadow:
+        8px 8px 0 #3d0000,
+        0 0 30px rgba(255, 0, 0, 0.45);
+}
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
+
+.seccion {
+    max-width: 1300px;
+    margin: auto;
+    padding: 110px 6%;
+}
+
+.seccion-oscura {
+    max-width: none;
+    background: linear-gradient(
+        135deg,
+        #100000,
+        #080808 50%,
+        #140000
+    );
+    border-top: 1px solid rgba(255, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+.seccion-motos {
+    background: linear-gradient(
+        135deg,
+        #0d0d0d,
+        #160000,
+        #080808
+    );
+}
+
+/* =========================================================
+   TÍTULOS
+   ========================================================= */
+
+.titulo {
+    max-width: 800px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.titulo span {
+    display: inline-block;
+    color: var(--rojo);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+}
+
+.titulo h2 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 1;
+    text-transform: uppercase;
+    font-weight: 1000;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+}
+
+.titulo p {
+    color: #888;
+    font-size: 1rem;
+}
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+    gap: 25px;
+}
+
+.tarjeta {
+    background: linear-gradient(
+        145deg,
+        #191919,
+        #0d0d0d
+    );
+    border: 1px solid #292929;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    transition:
+        transform 0.35s ease,
+        border 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.tarjeta::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--rojo-oscuro),
+        var(--rojo-brillante),
+        var(--rojo-oscuro)
+    );
+    z-index: 2;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    border-color: var(--rojo);
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.7),
+        0 0 25px rgba(225, 0, 0, 0.18);
+}
+
+.tarjeta img {
+    height: 220px;
+    filter: grayscale(20%) contrast(1.15);
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.tarjeta:hover img {
+    transform: scale(1.06);
+    filter: grayscale(0%) contrast(1.2);
+}
+
+.tarjeta-contenido {
+    padding: 25px;
+}
+
+.numero {
+    color: var(--rojo);
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.tarjeta h3 {
+    font-size: 1.5rem;
+    margin: 8px 0 12px;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.tarjeta p {
+    color: #999;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.tarjeta a {
+    color: var(--rojo-brillante);
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tarjeta a:hover {
+    color: white;
+}
+
+/* =========================================================
+   CONTENIDO DOS COLUMNAS
+   ========================================================= */
+
+.contenido {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.imagen {
+    overflow: hidden;
+    border: 1px solid #333;
+    box-shadow: var(--sombra-fuerte);
+    position: relative;
+}
+
+.imagen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(225, 0, 0, 0.25),
+        transparent 55%
+    );
+    pointer-events: none;
+}
+
+.imagen img {
+    height: 450px;
+    transition: transform 0.6s ease;
+}
+
+.imagen:hover img {
+    transform: scale(1.05);
+}
+
+.texto h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.texto h4 {
+    color: var(--rojo-brillante);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.texto p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.texto ul {
+    list-style: none;
+    margin: 20px 0 30px;
+}
+
+.texto li {
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    background: #151515;
+    border-left: 3px solid var(--rojo);
+    color: #ccc;
+}
+
+/* =========================================================
+   MINI TARJETAS
+   ========================================================= */
+
+.mini-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 25px 0 30px;
+}
+
+.mini-tarjetas > div {
+    padding: 20px;
+    background: #111;
+    border: 1px solid #2b2b2b;
+    border-left: 3px solid var(--rojo);
+}
+
+.mini-tarjetas p {
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+/* =========================================================
+   DINOSAURIOS
+   ========================================================= */
+
+.lista-dinosaurios {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+    gap: 25px;
+}
+
+.lista-dinosaurios article {
+    background: #111;
+    border: 1px solid #282828;
+    overflow: hidden;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.lista-dinosaurios article:hover {
+    transform: translateY(-8px);
+    border-color: var(--rojo);
+}
+
+.lista-dinosaurios img {
+    height: 250px;
+    filter: contrast(1.15);
+}
+
+.lista-dinosaurios h3 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    padding: 20px 20px 5px;
+}
+
+.lista-dinosaurios p {
+    color: #999;
+    padding: 0 20px 25px;
+}
+
+/* =========================================================
+   CRÁNEOS
+   ========================================================= */
+
+.craneos-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(230px, 1fr)
+    );
+    gap: 25px;
+}
+
+.craneos-grid article {
+    background: linear-gradient(
+        145deg,
+        #181818,
+        #090909
+    );
+    border: 1px solid #292929;
+    overflow: hidden;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.craneos-grid article:hover {
+    transform: translateY(-8px);
+    border-color: var(--rojo);
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(225, 0, 0, 0.15);
+}
+
+.craneos-grid img {
+    height: 260px;
+    filter: grayscale(80%) contrast(1.25);
+    transition:
+        filter 0.4s ease,
+        transform 0.4s ease;
+}
+
+.craneos-grid article:hover img {
+    filter: grayscale(20%) contrast(1.15);
+    transform: scale(1.04);
+}
+
+.craneos-grid h3 {
+    padding: 20px 20px 5px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.craneos-grid p {
+    color: #999;
+    padding: 0 20px 25px;
+    font-size: 0.9rem;
+}
+
+/* =========================================================
+   MOTOS
+   ========================================================= */
+
+.tipos-motos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.tipos-motos > div {
+    background: #111;
+    padding: 20px;
+    border: 1px solid #292929;
+    border-top: 3px solid var(--rojo);
+    transition: transform 0.3s ease;
+}
+
+.tipos-motos > div:hover {
+    transform: translateY(-5px);
+}
+
+.tipos-motos strong {
+    font-size: 1.5rem;
+}
+
+.tipos-motos h4 {
+    margin-top: 8px;
+}
+
+/* =========================================================
+   CURIOSIDADES
+   ========================================================= */
+
+.curiosidades {
+    background: radial-gradient(
+        circle at center,
+        #250000,
+        #080808 65%
+    );
+}
+
+.curiosidades-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(200px, 1fr)
+    );
+    gap: 20px;
+}
+
+.curiosidades-grid article {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(15, 15, 15, 0.9);
+    border: 1px solid #292929;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.curiosidades-grid article:hover {
+    transform: translateY(-7px);
+    border-color: var(--rojo);
+}
+
+.curiosidades-grid span {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.curiosidades-grid h3 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.curiosidades-grid p {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+
+.contacto {
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(
+        135deg,
+        #260000,
+        #0a0a0a
+    );
+    border-top: 2px solid var(--rojo);
+}
+
+.contacto h2 {
+    font-size: clamp(2rem, 5vw, 4rem);
+    text-transform: uppercase;
+    font-weight: 1000;
+    margin-bottom: 20px;
+}
+
+.contacto p {
+    color: #999;
+    margin-bottom: 30px;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+    background: #050505;
+    border-top: 3px solid var(--rojo);
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+}
+
+.footer h2 {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 1000;
+    letter-spacing: 2px;
+}
+
+.footer h3 {
+    color: var(--rojo);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.footer p {
+    color: #777;
+    max-width: 450px;
+}
+
+.footer a {
+    display: block;
+    color: #777;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    transition:
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.footer a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-final {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #1d1d1d;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* =========================================================
+   ANIMACIÓN DE ENTRADA
+   ========================================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-texto {
+    animation: aparecer 0.8s ease forwards;
+}
+
+.hero-imagen {
+    animation: aparecer 1s ease forwards;
+}
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding-top: 70px;
+    }
+
+    .hero-imagen {
+        height: 400px;
+        transform: none;
+    }
+
+    .contenido {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .footer-contenido {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+   ========================================================= */
+
+@media (max-width: 600px) {
+    .logo {
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    .logo p {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+
+    .menu {
+        gap: 0;
+        padding: 5px 10px 12px;
+    }
+
+    .menu a {
+        padding: 8px 9px;
+        font-size: 0.65rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 70px 20px;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+        letter-spacing: -2px;
+    }
+
+    .hero-imagen {
+        height: 300px;
+    }
+
+    .seccion {
+        padding: 75px 20px;
+    }
+
+    .titulo {
+        margin-bottom: 45px;
+    }
+
+    .titulo h2 {
+        font-size: 2.2rem;
+    }
+
+    .mini-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .tipos-motos {
+        grid-template-columns: 1fr;
+    }
+
+    .imagen img {
+        height: 300px;
+    }
+
+    .footer-contenido {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 50px 25px;
+    }
+}
+
+/* =========================================================
+   SELECCIÓN DE TEXTO
+   ========================================================= */
+
+::selection {
+    background: var(--rojo);
+    color: white;
+}
+
